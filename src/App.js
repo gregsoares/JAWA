@@ -1,8 +1,22 @@
+// import Components
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { TopNav } from './Components/TopNav/TopNav';
+import { Footer } from './Components/Footer/Footer';
+
+//import Pages
+import Index from './Pages/IndexPage';
+
+//import Utils
+
 function App() {
   return (
-    <div className="py-8 text-xl text-center text-gray-100 bg-gray-500 App">
-      App is Online
-    </div>
+    <Router>
+      <TopNav active='home' />
+      <Switch>
+        <Route exact path='/' component={Index} />
+      </Switch>
+      <Footer />
+    </Router>
   );
 }
 
