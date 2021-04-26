@@ -11,11 +11,13 @@ import Index from './Pages/IndexPage';
 function App() {
   return (
     <Router>
-      <TopNav active='home' />
-      <Switch>
-        <Route exact path='/' component={Index} />
-      </Switch>
-      <Footer />
+      <main className='my-0 py-0'>
+        <TopNav active='home' />
+        <Switch>
+          <Route exact path='/' component={Index} />
+        </Switch>
+        <Footer />
+      </main>
     </Router>
   );
 }

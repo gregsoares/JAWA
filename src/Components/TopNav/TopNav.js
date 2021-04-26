@@ -4,6 +4,8 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { useLocation } from 'react-router-dom';
 
+import { Tag } from '../Tag/Tag';
+
 export const TopNav = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const activePage = useLocation().pathname;
@@ -20,9 +22,9 @@ export const TopNav = (props) => {
       data-testid='TopnavContainer'
       onMouseLeave={() => isOpen && setIsOpen(false)}
     >
-      <div className='py-0 my-2 ml-8 text-white' data-testid='brandName'>
+      <div className='py-0 my-0 ml-8 text-white' data-testid='brandName'>
         <p className='py-0 text-xl font-medium tracking-wide lg:font-semibold md:text-2xl xl:text-3xl '>
-          <a href='/'>GregSoares.com</a>
+          <a href='/'> GregSoares.com</a>
         </p>
       </div>
       <div
@@ -70,14 +72,14 @@ export const TopNav = (props) => {
             href='/'
             data-testid='homeNavLink'
           >
-            Home
+            <Tag text='Home' />
           </a>
           <a
             className={isActive('/projects') + 'py-3 text-md rounded-md'}
             href='/projects'
             data-testid='projectsNavLink'
           >
-            Projects
+            <Tag text='Projects' />
           </a>
 
           <a
@@ -87,7 +89,7 @@ export const TopNav = (props) => {
             rel='noreferrer noopenner'
             data-testid='resumeNavLink'
           >
-            Resume
+            <Tag text='Resume' />
           </a>
         </div>
       </div>
@@ -96,14 +98,14 @@ export const TopNav = (props) => {
         id='navLinks'
       >
         <a className={isActive('/') + ''} href='/' data-testid='homeNavLink'>
-          Home
+          <Tag text='Home' />
         </a>
         <a
           className={isActive('/projects') + ''}
           href='/projects'
           data-testid='projectsNavLink'
         >
-          Projects
+          <Tag text='Projects' />
         </a>
 
         <a
@@ -113,7 +115,7 @@ export const TopNav = (props) => {
           rel='noopener noreferrer'
           data-testid='resumeNavLink'
         >
-          Resume
+          <Tag text='Resume' />
         </a>
       </div>
     </nav>
