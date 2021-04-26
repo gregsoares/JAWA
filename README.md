@@ -1,2 +1,10 @@
-# JAWA
-Just Another Weather App
+# JAWA - Just Another Weather App
+
+### Created with Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Available Scripts
+
+npm start -
+npm build -
