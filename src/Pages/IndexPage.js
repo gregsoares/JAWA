@@ -1,16 +1,17 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react/cjs/react.development';
-
+import React, { useState, useEffect } from 'react';
+// import { sampleData } from '../assets/api/weather';
 import { fetchData } from '../assets/api/weather';
 
 const Index = () => {
   const [query, setQuery] = useState([]);
   const [weatherData, setWeatherData] = useState({});
   const [unit, setUnit] = useState('imperial');
+
   const loadData = async (e) => {
     if (e.key === 'Enter') {
       const data = await fetchData({ q: query, units: unit });
 
+      // setWeatherData(sampleData);
       setWeatherData(data);
     }
   };
@@ -63,16 +64,31 @@ const Index = () => {
               {weatherData.sys.country}
             </sup>
           </p>
-          <p className='rounded-md bg-gray-400 py-2 mx-auto text-lg max-w-xs'>
-            {Math.round(weatherData.main.temp)}{' '}
-            <sup className='text-xl'>&deg;</sup>{' '}
+          <p className='rounded-md bg-gray-200 py-2 mx-auto text-lg max-w-sm'>
+            <span className='mx-2 my-1 py-1 px-2 rounded-xl'>
+              Temperature: {Math.round(weatherData.main.temp)}
+              <sup className='text-xl'>&deg;</sup>{' '}
+            </span>
+            <span className='mx-2 my-1 py-1 px-2 rounded-xl'>
+              Feels Like: {Math.round(weatherData.main.feels_like)}
+              <sup className='text-xl'>&deg;</sup>{' '}
+            </span>
           </p>
           <div className='mx-auto' id='weatherImgContainer'>
+            <span className='mx-2 mt-3 block mb-1 px-2 rounded-xl'>
+              Max: {Math.round(weatherData.main.temp_max)}
+              <sup className='text-xl'>&deg;</sup>
+            </span>
+
             <img
               className='mx-auto'
               src={`https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
               alt='weather img according to temperature'
             />
+            <span className='mx-2 mt-1 block mb-3 px-2 rounded-xl'>
+              Min: {Math.round(weatherData.main.temp_min)}
+              <sup className='text-xl'>&deg;</sup>
+            </span>
             <p className='capitalize'>{weatherData.weather[0].description}</p>
           </div>
         </div>
