@@ -29,8 +29,8 @@ const weatherURL = `http://api.openweathermap.org/data/2.5/weather`;
 export const fetchData = async (query) => {
   const { data } = await axios.get(weatherURL, {
     params: {
-      q: query,
-      units: 'imperial',
+      q: query.q,
+      units: query.units,
       appid: API_Key,
     },
   });

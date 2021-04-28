@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react/cjs/react.development';
 
 import { fetchData } from '../assets/api/weather';
@@ -6,15 +6,23 @@ import { fetchData } from '../assets/api/weather';
 const Index = () => {
   const [query, setQuery] = useState([]);
   const [weatherData, setWeatherData] = useState({});
-
+  const [unit, setUnit] = useState('imperial');
   const loadData = async (e) => {
     if (e.key === 'Enter') {
-      const data = await fetchData(query);
+      const data = await fetchData({ q: query, units: unit });
 
       setWeatherData(data);
-      setQuery('');
     }
   };
+
+  const changeUnit = (unit) => {
+    unit !== 'imperial' ? setUnit('metric') : setUnit('imperial');
+  };
+
+  useEffect(() => {
+    let fn = async () => await loadData({ key: 'Enter' });
+    fn();
+  });
 
   return (
     <div className='px-8 py-6' id='weatherContainer'>
@@ -27,7 +35,21 @@ const Index = () => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           onKeyPress={loadData}
-        />
+        />{' '}
+        <span className='border border-red-900 rounded-3xl py-2 px-2 mx-2 bg-gray-200'>
+          <button
+            className='mx-2 px-1 border hover:bg-white rounded-full'
+            onClick={() => changeUnit('metric')}
+          >
+            C&deg;
+          </button>
+          <button
+            className='mx-2 px-1 border hover:bg-white rounded-full'
+            onClick={() => changeUnit('imperial')}
+          >
+            F&deg;
+          </button>
+        </span>
       </div>
 
       {weatherData.main && (
