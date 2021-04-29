@@ -8,3 +8,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 npm start -
 npm build -
+
+
+Latest build's SS:
+
+![JAWA v1](https://i.imgur.com/9RYhOgp.png)
