@@ -16,4 +16,7 @@ npm build -
 
 Latest build's SS:
 
+![JAWA V1 Gif](https://i.imgur.com/XyJLKgl.gif)
+
 ![JAWA v1](https://i.imgur.com/9RYhOgp.png)
+
