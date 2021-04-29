@@ -1,5 +1,9 @@
 # JAWA - Just Another Weather App
 
+ReactJs application using https://openweathermap.org/ REST API to report basic weather information.
+
+
+
 ### Created with Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
